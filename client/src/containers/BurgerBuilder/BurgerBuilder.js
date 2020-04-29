@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -87,6 +87,8 @@ class BurgerBuilder extends Component {
         alert('You continue!');
     }
 
+    // here we change state
+    // trigger rerendering
     render () {
         // cannot alter directly the original state
         // copy the entire ingredients
@@ -99,6 +101,7 @@ class BurgerBuilder extends Component {
         // {salad: true, meat: false, ...}
         return (
             <Aux>
+                {/* if modal is shown, rerendering */}
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                     <OrderSummary 
                         ingredients={this.state.ingredients}
